@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Axel Orellana</title>
+  <meta name="description" content="Projects by Axel Orellana: digital design in Vivado, Raspberry Pi hardware, AI agent prototypes, and an upcoming AI and robotics capstone.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">Axel Orellana</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="assets/Axel_Orellana_Resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap page-head">
+      <h1>Projects</h1>
+      <p class="lead">Hardware first, then the software and AI work. Coursework is labeled as coursework.</p>
+    </div>
+
+    <div class="wrap">
+
+      <!-- ============ Project: ripple-carry adder ============ -->
+      <article class="project" id="ripple-carry-adder">
+        <header class="project-head">
+          <h2>4-bit ripple-carry adder</h2>
+          <div class="tags"><span class="tag">Coursework</span><span class="tag">Digital design</span></div>
+        </header>
+
+        <figure class="figure">
+          <img src="assets/img/ripple-carry-adder-schematic.jpg" width="1600" height="740" loading="lazy"
+               alt="Vivado RTL schematic. Inputs a[3:0], b[3:0], and cin feed four full-adder blocks labeled F0 to F3. F0 is expanded to show its XOR, AND, and OR gates. Outputs are s[3:0] and cout.">
+          <figcaption>The RTL schematic Vivado generated from my design. F0 is expanded to show the gates inside one full adder.</figcaption>
+        </figure>
+
+        <div class="project-body">
+          <div>
+            <p>
+              The adder takes two 4-bit numbers, <code>a</code> and <code>b</code>, plus a carry-in, and
+              produces a 4-bit sum and a carry-out. Instead of writing one big block of logic, I wrote a single
+              full-adder module and instantiated it four times. Each stage passes its carry-out to the next
+              stage's carry-in, which is what makes it a ripple-carry design.
+            </p>
+            <p>
+              The full adder is written in dataflow style. XOR gates produce the sum bit, and AND and OR gates
+              produce the carry. Opening the synthesized schematic was the best part: it shows exactly how the
+              HDL I wrote maps onto real gates.
+            </p>
+            <!-- TODO: add 1 to 2 sentences on how you tested it (testbench, simulation waveform, or running it on the board). -->
+          </div>
+          <dl class="facts">
+            <div><dt>Tools</dt><dd>Vivado <!-- TODO: add Verilog or VHDL, whichever you used --></dd></div>
+            <div><dt>Concepts</dt><dd>Hierarchical design, module reuse, combinational logic, carry propagation</dd></div>
+            <div><dt>Ports</dt><dd><code>a[3:0]</code>, <code>b[3:0]</code>, <code>cin</code> in; <code>s[3:0]</code>, <code>cout</code> out</dd></div>
+            <!-- TODO: link the code once it's on GitHub:
+            <div><dt>Code</dt><dd><a href="https://github.com/Axel-Orellana-dev/REPO">View on GitHub</a></dd></div> -->
+          </dl>
+        </div>
+      </article>
+
+      <!-- ============ Project: Raspberry Pi ============ -->
+      <article class="project" id="raspberry-pi">
+        <header class="project-head">
+          <h2>Raspberry Pi GPIO circuit</h2>
+          <div class="tags"><span class="tag">Hands-on build</span><span class="tag">Embedded</span></div>
+        </header>
+
+        <figure class="figure">
+          <img src="assets/img/raspberry-pi-build.jpg" width="1600" height="791" loading="lazy"
+               alt="A Raspberry Pi connected by jumper wires from its GPIO header to a breadboard holding an LED, a resistor, and a buzzer">
+          <figcaption>The Pi drives the breadboard circuit through jumper wires on its GPIO header.</figcaption>
+        </figure>
+
+        <div class="project-body">
+          <div>
+            <p>
+              A Raspberry Pi wired to a breadboard circuit through its GPIO pins, with an LED and a buzzer
+              on the board.
+            </p>
+            <p class="todo">
+              Add 2 to 3 sentences here: what the program does (for example, what triggers the LED and buzzer),
+              what language you wrote it in, and one thing that didn't work at first and how you fixed it.
+            </p>
+          </div>
+          <dl class="facts">
+            <div><dt>Hardware</dt><dd>Raspberry Pi, breadboard, LED, resistor, buzzer, jumper wires</dd></div>
+            <div><dt>Concepts</dt><dd>GPIO input and output, circuit wiring</dd></div>
+            <!-- TODO: add Language (likely Python) and a Code link once confirmed -->
+          </dl>
+        </div>
+      </article>
+
+      <!-- ============ Project: capstone ============ -->
+      <article class="project" id="capstone">
+        <header class="project-head">
+          <h2>Senior capstone: soon to be announced</h2>
+          <div class="tags"><span class="tag">In progress</span><span class="tag">AI and robotics</span></div>
+        </header>
+
+        <div class="project-body">
+          <div>
+            <p>
+              My senior capstone is underway, and I'll share the details soon. It brings together
+              everything I've been building toward: embedded systems, hardware and software working
+              together, and AI and robotics.
+            </p>
+            <p>Check back in spring 2027 for the full write-up.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Status</dt><dd>In progress, finishing spring 2027</dd></div>
+            <div><dt>Areas</dt><dd>Embedded systems, hardware and software, AI and robotics</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- ============ Project: Limbic Systems ============ -->
+      <article class="project" id="limbic">
+        <header class="project-head">
+          <h2>Apps, MVPs, and AI agent prototypes at Limbic Systems</h2>
+          <div class="tags"><span class="tag">Work</span><span class="tag">Software</span></div>
+        </header>
+
+        <div class="project-body">
+          <div>
+            <p>
+              For nearly three years (October 2023 to August 2026), I worked as a Junior Coder at Limbic Systems
+              through the CareerWise DC apprenticeship. I built front-end and back-end features for apps and
+              websites serving small businesses and local governments, including database and AI integrations.
+            </p>
+            <p>
+              I also turned product ideas into working MVPs and AI agent prototypes, taking them from design
+              through API integration.
+            </p>
+            <!-- TODO: add one non-confidential example (what an agent did, who it helped) with no client names. -->
+          </div>
+          <dl class="facts">
+            <div><dt>Role</dt><dd>Junior Coder</dd></div>
+            <div><dt>Tools</dt><dd>Bubble, Botpress, VS Code, APIs, databases</dd></div>
+            <div><dt>Clients</dt><dd>Small businesses and local governments</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!--
+        TEMPLATE: copy this block to add a project. Label coursework as coursework.
+
+      <article class="project" id="short-id">
+        <header class="project-head">
+          <h2>Project name</h2>
+          <div class="tags"><span class="tag">Coursework</span></div>
+        </header>
+        <figure class="figure">
+          <img src="assets/img/your-image.jpg" width="1600" height="900" loading="lazy" alt="Describe what the image shows">
+          <figcaption>One sentence about the image.</figcaption>
+        </figure>
+        <div class="project-body">
+          <div><p>The problem, what you built, and what you learned.</p></div>
+          <dl class="facts">
+            <div><dt>Tools</dt><dd>...</dd></div>
+            <div><dt>Code</dt><dd><a href="https://github.com/Axel-Orellana-dev/REPO">View on GitHub</a></dd></div>
+          </dl>
+        </div>
+      </article>
+      -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span class="js-year">2026</span> Axel Orellana. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
